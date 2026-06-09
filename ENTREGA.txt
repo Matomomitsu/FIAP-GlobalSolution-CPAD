@@ -3,5 +3,5 @@ Disciplina: Cross-Platform Application Development
 
 Integrante 1: Mateus Scandiuzzi Valente Tomomitsu | RM: 561565
 
-GitHub: https://github.com/...
-Video: https://...
+GitHub: https://github.com/Matomomitsu/FIAP-GlobalSolution-CPAD
+Video: https://youtu.be/DLvCKyojPc4
