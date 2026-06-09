@@ -143,6 +143,10 @@ GROQ_MODEL=llama-3.1-8b-instant
 
 Nao envie o arquivo `.env` para o GitHub.
 
+## Demonstracao
+
+[Assista ao video de demonstracao](https://youtu.be/DLvCKyojPc4)
+
 ## Licenca
 
 Este projeto foi desenvolvido para fins academicos - FIAP 2026.
