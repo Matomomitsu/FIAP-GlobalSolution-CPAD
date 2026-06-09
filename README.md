@@ -1,11 +1,20 @@
-# Global Solution CPAD
+# Astra Command - Space Predictive Analytics
 ### Global Solution 2026.1 - Cross-Platform Application Development | FIAP
 
-![Global Solution CPAD](./assets/images/icon.png)
+Aplicativo mobile em React Native + Expo para monitoramento preditivo de uma missao espacial simulada. A solucao organiza telemetria de sensores, energia, comunicacao e estabilidade orbital, gera alertas por limiares criticos e oferece suporte operacional com dashboards, historico, persistencia local, dados orbitais externos e resumo inteligente sob demanda.
 
-## Descricao
+## Resumo da Entrega
 
-Global Solution CPAD e um aplicativo mobile em React Native + Expo para simular uma plataforma de Space Predictive Analytics. A solucao monitora telemetria de sensores, energia, comunicacao, estabilidade orbital e asteroides proximos, gera alertas por limiares criticos e apresenta uma interpretacao operacional para apoio a decisao. O diferencial do projeto e unir dashboards em tempo real simulado, Context API, persistencia local, NASA Asteroids NeoWs e resumo manual com Groq.
+| Item | Status |
+|------|--------|
+| Expo Router com Tabs + Stack | Implementado |
+| Minimo de 3 dashboards espaciais | Implementado |
+| Context API consumida em multiplas telas | Implementado |
+| Persistencia com AsyncStorage | Implementado |
+| Formularios com validacao e feedback visual | Implementado |
+| Sistema de alertas por limiares criticos | Implementado |
+| Prints reais no README | Implementado |
+| Video de demonstracao | Pendente inserir link real |
 
 ## Equipe
 
@@ -13,104 +22,143 @@ Global Solution CPAD e um aplicativo mobile em React Native + Expo para simular 
 |------|----|
 | Mateus Scandiuzzi Valente Tomomitsu | RM561565 |
 
+## Proposta
+
+O desafio da disciplina pede uma plataforma de Space Predictive Analytics para apoiar decisoes em operacoes orbitais simuladas. Este app resolve esse problema com um centro de comando mobile que mostra leituras em tempo real simulado, identifica anomalias automaticamente e registra o ciclo dos alertas da missao. O operador pode cadastrar acesso, configurar missoes, ajustar limites operacionais, acompanhar tendencias e gerar um briefing curto para entender o estado atual da operacao.
+
+## Principais Funcionalidades
+
+- [x] Cadastro e login local de operador com validacao de nome, email e senha.
+- [x] Senha protegida por hash usando `expo-crypto`.
+- [x] Missao padrao criada automaticamente para cada operador.
+- [x] Criacao, edicao, selecao e remocao de missoes.
+- [x] Configuracao de limiares de temperatura, radiacao, bateria, sinal, latencia e estabilidade.
+- [x] Telemetria simulada atualizada periodicamente.
+- [x] Dashboard principal com energia, temperatura, sinal, estabilidade, risco e predicoes.
+- [x] Dashboards especificos para sensores, energia e comunicacao/orbita.
+- [x] Graficos de tendencia com historico recente.
+- [x] Alertas automaticos por limiar critico com severidade.
+- [x] Historico de alertas inativos ou resolvidos, com filtro por status e paginacao.
+- [x] Resolucao manual de alertas ativos e registros inativos.
+- [x] Persistencia de usuarios, sessoes, missoes, limiares e historico.
+- [x] Integracao com NASA Asteroids NeoWs para consciencia orbital.
+- [x] Resumo operacional sob demanda com Groq, mantendo fallback local.
+- [x] Animacao espacial continua com Animated API.
+- [x] Tema escuro espacial e interface responsiva.
+
 ## Telas do Aplicativo
 
 ### Login - Acesso do Operador
-![Login](./assets/screenshots/tela_login.png)
 
-Tela de entrada com credenciais locais para carregar as missoes do operador.
+<img src="./assets/screenshots/tela_login.png" alt="Tela de login" width="320" />
+
+Tela de entrada com email e senha para carregar as missoes vinculadas ao operador.
 
 ### Cadastro - Novo Operador
-![Cadastro](./assets/screenshots/tela_cadastro.png)
 
-Formulario de criacao de operador com nome, email, senha e feedback visual de validacao.
+<img src="./assets/screenshots/tela_cadastro.png" alt="Tela de cadastro" width="320" />
+
+Formulario de criacao de operador com validacao de nome, email e senha, exibindo feedback visual de erro antes da submissao.
 
 ### Home - Dashboard Principal
-![Home](./assets/screenshots/tela_inicial.png)
 
-Visao geral dos indicadores da missao: energia, temperatura, sinal, estabilidade orbital, risco, interpretacao inteligente e monitoramento de asteroides.
+<img src="./assets/screenshots/tela_inicial.png" alt="Dashboard principal" width="320" />
+
+Visao geral do centro preditivo: risco da missao, ultimas leituras, alertas ativos, energia, temperatura, sinal e estabilidade orbital.
 
 ### Analise de Bordo
-![Analise de Bordo](./assets/screenshots/Analise_de_bordo.png)
 
-Resumo operacional gerado sob demanda, com predicoes de curto prazo para apoio a decisao.
+<img src="./assets/screenshots/Analise_de_bordo.png" alt="Analise de bordo" width="320" />
+
+Painel de briefing operacional com resumo gerado sob demanda e previsoes de curto prazo, incluindo bateria prevista e tendencia de sinal.
 
 ### Consciencia Orbital
-![Consciencia Orbital](./assets/screenshots/Consciencia_Orbital.png)
 
-Painel com objetos proximos a Terra e contexto externo de risco orbital.
+<img src="./assets/screenshots/Consciencia_Orbital.png" alt="Consciencia orbital" width="320" />
+
+Monitoramento de objetos proximos a Terra para enriquecer o contexto externo de risco da missao.
 
 ### Dashboards - Dados Espaciais
-![Dashboards](./assets/screenshots/Dashboards.png)
 
-Dashboards com graficos e indicadores de sensores, energia, comunicacao e estabilidade orbital em tempo real simulado.
+<img src="./assets/screenshots/Dashboards.png" alt="Dashboards espaciais" width="320" />
+
+Area de dashboards com sensores, energia, comunicacao e estabilidade orbital, incluindo cards e graficos de tendencia.
 
 ### Alertas
-![Alertas](./assets/screenshots/Alertas.png)
 
-Lista de alertas ativos e historico paginado de 5 em 5 registros, com filtro por status e acao para resolver registros inativos.
+<img src="./assets/screenshots/Alertas.png" alt="Tela de alertas" width="320" />
+
+Quadro de alertas ativos, historico paginado, filtro por status e acoes para resolver ou remover registros.
 
 ### Dados da Missao
-![Dados da Missao](./assets/screenshots/Dados_Missao.png)
 
-Tela central de configuracoes com operador, missao atual, lista de missoes e atalhos para criacao ou edicao.
+<img src="./assets/screenshots/Dados_Missao.png" alt="Dados da missao" width="320" />
+
+Tela de configuracoes com operador atual, missao selecionada, atalhos de edicao e gerenciamento de missoes criadas.
 
 ### Editar Missao - Formulario
-![Editar Missao](./assets/screenshots/Editar_Missao.png)
 
-Tela separada para criar ou editar missao com nome, orbita, tripulacao, objetivo e limites de alerta com validacao.
+<img src="./assets/screenshots/Editar_Missao.png" alt="Formulario de missao" width="320" />
 
-## Funcionalidades
+Formulario para criar ou editar missao com nome, orbita, tripulacao, objetivo e limiares operacionais com validacao.
 
-- [x] Navegacao com Expo Router usando Tabs
-- [x] Dashboard principal com indicadores em tempo real simulado
-- [x] Minimo de 3 dashboards: sensores, energia, comunicacao/orbita
-- [x] Context API para estado global da missao
-- [x] `useReducer`, `useState` e `useEffect` aplicados no fluxo principal
-- [x] Login e cadastro local com validacao de nome, email e senha
-- [x] Senhas protegidas por hash com `expo-crypto`
-- [x] Persistencia com AsyncStorage para usuarios, missoes, limiares e historico
-- [x] Multiplas missoes por usuario, com missao padrao criada automaticamente
-- [x] Formulario funcional em tela separada para criar/editar missao com inputs controlados e validacao
-- [x] Sistema de alertas automaticos baseado em limiares criticos
-- [x] Historico dos alertas inativos ou resolvidos com filtro por status, paginacao de 5 registros e resolucao manual de inativos
-- [x] Interface tematica espacial com modo escuro
-- [x] Animacao continua com Animated API no fundo espacial
-- [x] API externa com NASA Asteroids NeoWs e cache local diario
-- [x] Integracao opcional com Groq API para resumo manual da missao
-- [x] Prints reais de todas as telas em `assets/screenshots/`
-- [ ] Video de demonstracao de ate 3 minutos
+## Arquitetura e Organizacao
 
-## Bonus Implementados
+| Pasta/Arquivo | Responsabilidade |
+|---------------|------------------|
+| `app/` | Rotas Expo Router, telas autenticadas, auth e formulario de missao |
+| `app/(tabs)/` | Abas principais: Home, Dashboards, Alertas e Dados da Missao |
+| `app/(auth)/` | Login e cadastro do operador |
+| `components/` | Componentes reutilizaveis de UI, cards, paineis, graficos e briefing |
+| `context/AuthContext.tsx` | Autenticacao local, sessao e hash de senha |
+| `context/MissionContext.tsx` | Estado global da missao, simulacao, alertas, historico e persistencia |
+| `data/missionSimulation.ts` | Modelo de telemetria simulada, alertas e calculo de risco |
+| `config/environment.ts` | Leitura de variaveis para integracoes externas |
+| `types/mission.ts` | Tipos TypeScript do dominio da missao |
 
-| Diferencial | Status | Implementacao |
-|-------------|--------|---------------|
-| TypeScript | Implementado | Tipagem consistente em telas, contexto, componentes e modelos da missao |
-| Animacoes | Implementado | `Animated` API em `components/AnimatedStarfield.tsx` com pulso orbital continuo |
-| API externa | Implementado | NASA Asteroids NeoWs em `components/AsteroidMonitorPanel.tsx` com cache local diario via AsyncStorage |
-| Autenticacao local | Implementado | Cadastro/login com senha hasheada por `expo-crypto` e sessao persistida no dispositivo |
-| Missoes por usuario | Implementado | Cada usuario tem missao padrao, pode criar novas missoes e remover missoes com seus alertas |
-| Alertas inteligentes | Implementado | Regras de limiar classificam alertas criticos e o historico visivel nao duplica eventos ativos |
-| IA Generativa | Implementado opcional | Botao de resumo da missao com Groq via `GROQ_API_KEY`, usando telemetria atual, alertas ativos e historico sem eventos abertos duplicados |
-| Dark Mode | Implementado | Tema escuro espacial fixo em `app.json` e paleta visual propria |
+## Como o App Atende aos Criterios
+
+| Criterio | Implementacao |
+|----------|---------------|
+| Navegacao com Expo Router | Rotas organizadas com Tabs, Stack e grupo de autenticacao |
+| Dashboards de dados espaciais | Home + dashboards de sensores, energia, comunicacao e estabilidade |
+| Gerenciamento de estado | `useReducer`, `useState`, `useEffect` e Context API em auth/missao |
+| Persistencia | Usuarios, sessao, missoes, limiares e historico persistidos localmente |
+| Formularios e inputs | Cadastro e formulario de missao com inputs controlados e mensagens de erro |
+| Sistema de alertas | Regras por limiar geram alertas de temperatura, radiacao, bateria, sinal, latencia e estabilidade |
+| Qualidade visual e UX | Tema espacial escuro, cards reutilizaveis, estados vazios, filtros e paginacao |
+| Organizacao do codigo | Separacao por rotas, componentes, contexto, dados, config e tipos |
+| Video | Estrutura pronta; inserir link real na secao de demonstracao |
+
+## Diferenciais Implementados
+
+| Diferencial | Implementacao |
+|-------------|---------------|
+| TypeScript | Tipagem consistente em telas, componentes, contexto e modelos de dominio |
+| Animated API | Fundo espacial animado com movimento continuo e respeito a reduced motion |
+| API externa | NASA Asteroids NeoWs para objetos proximos a Terra |
+| IA Generativa | Botao manual para resumo operacional com Groq e fallback local |
+| Dark Mode | Tema escuro espacial fixo e paleta visual propria |
+| Autenticacao local | Cadastro/login com hash de senha e sessao persistida |
 
 ## Tecnologias
 
-- React Native + Expo SDK 56
+- React Native 0.85
+- Expo SDK 56
 - TypeScript
 - Expo Router
 - Context API
 - AsyncStorage
 - Expo Crypto
+- Expo Constants
 - Expo Symbols
+- React Native Reanimated
 - NASA Asteroids NeoWs
 - Groq API
-- Animated API
-- React Native Reanimated
 
 ## Variaveis de Ambiente
 
-Crie um arquivo `.env` baseado em `.env.example` para configurar as APIs externas:
+Para habilitar as integracoes externas, crie um arquivo `.env` na raiz do projeto, seguindo o modelo de `.env.example`:
 
 ```bash
 NASA_API_KEY=sua-chave-nasa
@@ -118,58 +166,31 @@ GROQ_API_KEY=sua-chave-groq
 GROQ_MODEL=llama-3.1-8b-instant
 ```
 
-`NASA_API_KEY` e usada para carregar a janela de asteroides proximos pela NASA Asteroids NeoWs. O resultado fica salvo em cache local diario para evitar requisicoes repetidas.
+`NASA_API_KEY` habilita a consulta de objetos proximos a Terra pela NASA Asteroids NeoWs. `GROQ_API_KEY` habilita o briefing real com LLM. Se a chave Groq nao estiver configurada, o app usa um resumo local sob demanda.
 
-O app funciona sem chave Groq usando um resumo local explicavel sob demanda. Para ativar a chamada real ao Groq, configure `GROQ_API_KEY`.
-
-O modelo padrao `llama-3.1-8b-instant` e leve e adequado para uso no free tier da Groq, respeitando os limites da conta.
-
-Nao envie o `.env` para o GitHub.
-
-## Como Executar
-
-### Pre-requisitos
-
-- Node.js compativel com Expo SDK 56
-- Expo Go instalado no celular ou ambiente de simulador
-
-### Instalacao
-
-Clone o repositorio:
-
-```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-```
-
-Acesse a pasta do projeto:
-
-```bash
-cd space-predictive-analytics
-```
-
-Instale as dependencias:
-
-```bash
-npm install
-```
-
-Inicie o projeto:
-
-```bash
-npm start
-```
-
-Para validar os tipos TypeScript:
-
-```bash
-npm run typecheck
-```
-
-Escaneie o QR Code com o Expo Go para rodar no dispositivo fisico.
+Nao envie o arquivo `.env` para o GitHub.
 
 ## Video de Demonstracao
 
 [Clique aqui para assistir a demonstracao](https://youtube.com/...)
+
+Roteiro sugerido para ate 3 minutos:
+
+1. Mostrar login/cadastro e validacoes.
+2. Apresentar a Home com telemetria, risco e indicadores principais.
+3. Gerar o resumo em Analise de Bordo.
+4. Mostrar Consciencia Orbital com dados externos.
+5. Demonstrar Dashboards de sensores, energia e comunicacao.
+6. Mostrar Alertas, historico, filtros, paginacao e resolucao.
+7. Editar dados da missao e validar campos obrigatorios.
+
+## Status Final da Entrega
+
+- Prints reais adicionados em `assets/screenshots/`.
+- App validado com `npm run typecheck`.
+- Dependencias Expo verificadas com `npx expo install --check`.
+- Export web validado com `npx expo export --platform web`.
+- Pendencias finais: inserir link real do GitHub e link real do video no arquivo de entrega.
 
 ## Licenca
 
