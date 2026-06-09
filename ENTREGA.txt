@@ -1,0 +1,7 @@
+=== GLOBAL SOLUTION 2026.1 ===
+Disciplina: Cross-Platform Application Development
+
+Integrante 1: Mateus Scandiuzzi Valente Tomomitsu | RM: 561565
+
+GitHub: https://github.com/...
+Video: https://...

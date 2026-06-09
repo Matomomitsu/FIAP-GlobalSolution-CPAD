@@ -1,70 +1,144 @@
 import { SymbolView } from 'expo-symbols';
-import { Link, Tabs } from 'expo-router';
-import { Platform, Pressable } from 'react-native';
+import { Tabs } from 'expo-router';
+import type { ComponentProps } from 'react';
+import { StyleSheet, useColorScheme, View } from 'react-native';
 
 import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { Palette, Radius } from '@/constants/Colors';
+
+type TabIconProps = {
+  color: ComponentProps<typeof SymbolView>['tintColor'];
+  focused: boolean;
+  name: ComponentProps<typeof SymbolView>['name'];
+};
+
+function TabIcon({ color, focused, name }: TabIconProps) {
+  return (
+    <View style={styles.iconWrap}>
+      <View style={[styles.activeDot, focused && styles.activeDotVisible]} />
+      <SymbolView name={name} tintColor={color} size={23} />
+    </View>
+  );
+}
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const scheme = useColorScheme();
+  const colorScheme = scheme === 'light' ? 'light' : 'dark';
+  const colors = Colors[colorScheme];
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        tabBarActiveTintColor: colors.tint,
+        tabBarInactiveTintColor: colors.tabIconDefault,
+        tabBarShowLabel: true,
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: '900',
+          marginTop: 0,
+        },
+        tabBarStyle: {
+          backgroundColor: Palette.panel,
+          borderColor: Palette.border,
+          borderRadius: Radius.xl,
+          borderTopColor: Palette.border,
+          borderWidth: 1,
+          bottom: 16,
+          elevation: 14,
+          height: 84,
+          left: 18,
+          overflow: 'visible',
+          paddingBottom: 10,
+          paddingTop: 8,
+          position: 'absolute',
+          right: 18,
+          shadowColor: Palette.ink,
+          shadowOffset: { height: 12, width: 0 },
+          shadowOpacity: 0.32,
+          shadowRadius: 22,
+        },
+        tabBarActiveBackgroundColor: 'transparent',
+        tabBarHideOnKeyboard: true,
+        tabBarItemStyle: {
+          marginHorizontal: 3,
+          minHeight: 60,
+        },
+        headerShown: false,
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
+          title: 'Missao',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              focused={focused}
               name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
+                ios: 'paperplane.fill',
+                android: 'rocket_launch',
+                web: 'rocket_launch',
               }}
-              tintColor={color}
-              size={28}
             />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable style={{ marginRight: 15 }}>
-                {({ pressed }) => (
-                  <SymbolView
-                    name={{ ios: 'info.circle', android: 'info', web: 'info' }}
-                    size={25}
-                    tintColor={Colors[colorScheme].text}
-                    style={{ opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="dashboards"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
+          title: 'Dados',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              focused={focused}
               name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
+                ios: 'chart.bar.xaxis',
+                android: 'monitoring',
+                web: 'monitoring',
               }}
-              tintColor={color}
-              size={28}
             />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="alerts"
+        options={{
+          title: 'Alertas',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              focused={focused}
+              name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Config',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon color={color} focused={focused} name={{ ios: 'slider.horizontal.3', android: 'tune', web: 'tune' }} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  activeDot: {
+    backgroundColor: 'transparent',
+    borderRadius: 999,
+    height: 7,
+    marginBottom: 5,
+    width: 7,
+  },
+  activeDotVisible: {
+    backgroundColor: Palette.accent,
+  },
+  iconWrap: {
+    alignItems: 'center',
+    minHeight: 36,
+    justifyContent: 'center',
+  },
+});
