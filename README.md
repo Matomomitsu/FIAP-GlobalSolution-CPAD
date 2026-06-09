@@ -3,19 +3,6 @@
 
 Aplicativo mobile em React Native + Expo para monitoramento preditivo de uma missao espacial simulada. A solucao organiza telemetria de sensores, energia, comunicacao e estabilidade orbital, gera alertas por limiares criticos e oferece suporte operacional com dashboards, historico, persistencia local, dados orbitais externos e resumo inteligente sob demanda.
 
-## Resumo da Entrega
-
-| Item | Status |
-|------|--------|
-| Expo Router com Tabs + Stack | Implementado |
-| Minimo de 3 dashboards espaciais | Implementado |
-| Context API consumida em multiplas telas | Implementado |
-| Persistencia com AsyncStorage | Implementado |
-| Formularios com validacao e feedback visual | Implementado |
-| Sistema de alertas por limiares criticos | Implementado |
-| Prints reais no README | Implementado |
-| Video de demonstracao | Pendente inserir link real |
-
 ## Equipe
 
 | Nome | RM |
@@ -116,21 +103,7 @@ Formulario para criar ou editar missao com nome, orbita, tripulacao, objetivo e 
 | `config/environment.ts` | Leitura de variaveis para integracoes externas |
 | `types/mission.ts` | Tipos TypeScript do dominio da missao |
 
-## Como o App Atende aos Criterios
-
-| Criterio | Implementacao |
-|----------|---------------|
-| Navegacao com Expo Router | Rotas organizadas com Tabs, Stack e grupo de autenticacao |
-| Dashboards de dados espaciais | Home + dashboards de sensores, energia, comunicacao e estabilidade |
-| Gerenciamento de estado | `useReducer`, `useState`, `useEffect` e Context API em auth/missao |
-| Persistencia | Usuarios, sessao, missoes, limiares e historico persistidos localmente |
-| Formularios e inputs | Cadastro e formulario de missao com inputs controlados e mensagens de erro |
-| Sistema de alertas | Regras por limiar geram alertas de temperatura, radiacao, bateria, sinal, latencia e estabilidade |
-| Qualidade visual e UX | Tema espacial escuro, cards reutilizaveis, estados vazios, filtros e paginacao |
-| Organizacao do codigo | Separacao por rotas, componentes, contexto, dados, config e tipos |
-| Video | Estrutura pronta; inserir link real na secao de demonstracao |
-
-## Diferenciais Implementados
+## Recursos Tecnicos
 
 | Diferencial | Implementacao |
 |-------------|---------------|
@@ -169,28 +142,6 @@ GROQ_MODEL=llama-3.1-8b-instant
 `NASA_API_KEY` habilita a consulta de objetos proximos a Terra pela NASA Asteroids NeoWs. `GROQ_API_KEY` habilita o briefing real com LLM. Se a chave Groq nao estiver configurada, o app usa um resumo local sob demanda.
 
 Nao envie o arquivo `.env` para o GitHub.
-
-## Video de Demonstracao
-
-[Clique aqui para assistir a demonstracao](https://youtube.com/...)
-
-Roteiro sugerido para ate 3 minutos:
-
-1. Mostrar login/cadastro e validacoes.
-2. Apresentar a Home com telemetria, risco e indicadores principais.
-3. Gerar o resumo em Analise de Bordo.
-4. Mostrar Consciencia Orbital com dados externos.
-5. Demonstrar Dashboards de sensores, energia e comunicacao.
-6. Mostrar Alertas, historico, filtros, paginacao e resolucao.
-7. Editar dados da missao e validar campos obrigatorios.
-
-## Status Final da Entrega
-
-- Prints reais adicionados em `assets/screenshots/`.
-- App validado com `npm run typecheck`.
-- Dependencias Expo verificadas com `npx expo install --check`.
-- Export web validado com `npx expo export --platform web`.
-- Pendencias finais: inserir link real do GitHub e link real do video no arquivo de entrega.
 
 ## Licenca
 
